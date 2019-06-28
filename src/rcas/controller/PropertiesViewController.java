@@ -5,13 +5,13 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -34,6 +34,12 @@ public class PropertiesViewController {
 	private LineChart<Number, Number> mainChart;
 	@FXML
 	private ResourceBundle resources;
+	@FXML
+	private Tab tabCar;
+	@FXML
+	private Tab tabProperties;
+	@FXML
+	private Tab tabTopView;
 
 	@FXML
 	public void initialize() {
@@ -105,17 +111,26 @@ public class PropertiesViewController {
 	@FXML
 	 void changeToTopView(ActionEvent event) throws IOException {
 
-		System.out.println("gay");
-		FXMLLoader fxml = FXMLLoader.load(getClass().getResource("Car.fxml"));
-		Pane mainPane = fxml.load();
-		Scene mainScene = new Scene(mainPane, 1500, 800);
-		primaryStage.setScene(mainScene);
-		primaryStage.show();
-		Variables.scene = mainScene;
+	FXMLLoader fxml = FXMLLoader.load(getClass().getResource("Car.fxml"));
+	Pane mainPane = fxml.load();
+	Scene mainScene = new Scene(mainPane, 1500, 800);
+	Variables.scene = mainScene;
 	}
 	**/
+
 	@FXML
-	private void changeToPropertiesView(ActionEvent event){
-		System.out.println("gay");
+	private void changeTabView(Event event) throws IOException{
+		if(tabProperties.isSelected()) Variables.scene = setScene("../../view/Properties.fxml");
+		else if(tabCar.isSelected()) Variables.scene = setScene("../../view/Car.fxml");
+		else if(tabTopView.isSelected()) Variables.scene = setScene("../../view/TopView.fxml");
+
+	}
+
+	private Scene setScene(String strPath) throws IOException{
+		Pane root = FXMLLoader.load(getClass().getResource("../../view/Properties.fxml"));
+		Scene scene = new Scene(root, 1300, 800);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		return scene;
 	}
 }

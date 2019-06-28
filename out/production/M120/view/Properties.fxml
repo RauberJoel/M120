@@ -18,7 +18,7 @@
 		<Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
 	</padding>
 	<children>
-      <Pane prefHeight="800.0" prefWidth="1500.0">
+      <Pane prefHeight="800.0" prefWidth="1300.0">
          <children>
             <Text fill="#1505ff" layoutX="148.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties" textAlignment="CENTER" wrappingWidth="264.548828125">
                <font>
@@ -33,19 +33,19 @@
       				<NumberAxis fx:id="yAxis" label="%yAxisLabel" side="LEFT" />
       			</yAxis>
       		</LineChart>
-            <TabPane layoutX="700.0" layoutY="50.0" prefHeight="569.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0">
+            <TabPane fx:id="tabPane" layoutX="700.0" layoutY="50.0" prefHeight="569.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0">
               <tabs>
-                <Tab fx:id="tabCar" text="Car">
+                <Tab fx:id="tabCar" onSelectionChanged="#changeTabView" text="Car">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                   </content>
                 </Tab>
-                <Tab fx:id="tabProperties" onSelectionChanged="#changeToPropertiesView" text="Properties">
+                <Tab fx:id="tabProperties" onSelectionChanged="#changeTabView" text="Properties">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                   </content>
                 </Tab>
-                  <Tab fx:id="tabTopView" text="Topview" >
+                  <Tab fx:id="tabTopView" onSelectionChanged="#changeTabView" text="Topview">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>

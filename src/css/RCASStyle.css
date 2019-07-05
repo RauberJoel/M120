@@ -1,4 +1,8 @@
 .chart-title {
-  -fx-text-fill: blue;
-  -fx-font-size: 1.6em;
+    -fx-text-fill: blue;
+    -fx-font-size: 1.6em;
+}
+
+#selectBox {
+
 }

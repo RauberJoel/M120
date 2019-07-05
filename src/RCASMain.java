@@ -2,7 +2,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import rcas.controller.IndexViewController;
 import rcas.util.Variables;
 
 import java.util.ResourceBundle;
@@ -17,15 +16,14 @@ public class RCASMain extends Application {
         fxmlLoader.setResources(resourceBundle);
 
 
-        Scene mainScene = new Scene(fxmlLoader.load(), 1500, 800);
+        Scene mainScene = new Scene(fxmlLoader.load(), 1300, 800);
         primaryStage.centerOnScreen();
         primaryStage.setTitle(resourceBundle.getString("applicationTitle"));
         primaryStage.setScene(mainScene);
         primaryStage.show();
-        IndexViewController controller = fxmlLoader.getController();
-        controller.setPrimaryStage(primaryStage);
 
 
+        Variables.primaryStage = primaryStage;
         Variables.scene = mainScene;
     }
 

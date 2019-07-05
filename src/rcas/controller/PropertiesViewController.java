@@ -22,11 +22,6 @@ import rcas.util.CorneringAnalyserUtil;
 import rcas.util.Variables;
 
 public class PropertiesViewController {
-
-	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-	}
-
 	private Stage primaryStage;
 	@FXML
 	private GridPane mainPane;
@@ -99,36 +94,27 @@ public class PropertiesViewController {
 				util.getMMMStabilityValue(raceCar, 20.0, -5.0, -4.0)));
 	}
 
-	/**
-	@FXML
-	private void changeToCarView(ActionEvent event) throws IOException {
-		FXMLLoader fxml = FXMLLoader.load(getClass().getResource("Car.fxml"));
-		Pane mainPane = fxml.load();
-		Scene mainScene = new Scene(mainPane, 1500, 800);
-		Variables.scene = mainScene;
-	}
-
-	@FXML
-	 void changeToTopView(ActionEvent event) throws IOException {
-
-	FXMLLoader fxml = FXMLLoader.load(getClass().getResource("Car.fxml"));
-	Pane mainPane = fxml.load();
-	Scene mainScene = new Scene(mainPane, 1500, 800);
-	Variables.scene = mainScene;
-	}
-	**/
-
 	@FXML
 	private void changeTabView(Event event) throws IOException{
-		if(tabProperties.isSelected()) Variables.scene = setScene("../../view/Properties.fxml");
-		else if(tabCar.isSelected()) Variables.scene = setScene("../../view/Car.fxml");
-		else if(tabTopView.isSelected()) Variables.scene = setScene("../../view/TopView.fxml");
+		if(tabProperties != null && tabProperties.isSelected()) {
+			Variables.scene = setScene("view/Properties.fxml");
+			System.out.println("Changed");
+		}
+		else if(tabCar != null && tabCar.isSelected()) {
+			Variables.scene = setScene("view/Car.fxml");
+			System.out.println("Changed");
+		}
+		else if(tabTopView != null && tabTopView.isSelected()) {
+			Variables.scene = setScene("view/TopView.fxml");
+			System.out.println("Changed");
+		}
 
 	}
 
 	private Scene setScene(String strPath) throws IOException{
-		Pane root = FXMLLoader.load(getClass().getResource("../../view/Properties.fxml"));
+		Pane root = FXMLLoader.load(getClass().getResource(strPath));
 		Scene scene = new Scene(root, 1300, 800);
+		this.primaryStage = Variables.primaryStage;
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		return scene;

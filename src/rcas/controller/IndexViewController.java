@@ -31,13 +31,13 @@ public class IndexViewController {
 
     @FXML
     public void initialize() {
-        selectBox.setItems(FXCollections.observableArrayList("Student                                         ", "Ingenieur"));
+        selectBox.setItems(FXCollections.observableArrayList("Student", "Ingenieur"));
     }
 
     @FXML
     public void onLoginClick(ActionEvent actionEvent) throws IOException {
-        if (selectBox.getValue().equals("Ingenieur") || selectBox.getValue().equals("Student                                         ")) {
-            Variables.scene = setScene("/view/TopView.fxml");
+        if (selectBox.getValue().equals("Ingenieur") || selectBox.getValue().equals("Student")) {
+            Variables.scene = setScene("/view/SelectCar.fxml");
             System.out.println("Changed view");
         } else {
             System.out.println("Select a user");
@@ -46,7 +46,7 @@ public class IndexViewController {
 
     private Scene setScene(String strPath) throws IOException {
         Pane root = FXMLLoader.load(getClass().getResource(strPath));
-        Scene scene = new Scene(root, 1100, 600);
+        Scene scene = new Scene(root, 1300, 600);
         this.primaryStage = Variables.primaryStage;
         primaryStage.setScene(scene);
         primaryStage.show();

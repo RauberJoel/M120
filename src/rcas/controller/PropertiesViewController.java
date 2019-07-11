@@ -97,15 +97,15 @@ public class PropertiesViewController {
 	@FXML
 	private void changeTabView(Event event) throws IOException{
 		if(tabProperties != null && tabProperties.isSelected()) {
-			Variables.scene = setScene("view/Properties.fxml");
+			Variables.scene = setScene("/view/Properties.fxml");
 			System.out.println("Changed");
 		}
 		else if(tabCar != null && tabCar.isSelected()) {
-			Variables.scene = setScene("view/Car.fxml");
+			Variables.scene = setScene("/view/Car.fxml");
 			System.out.println("Changed");
 		}
 		else if(tabTopView != null && tabTopView.isSelected()) {
-			Variables.scene = setScene("view/TopView.fxml");
+			Variables.scene = setScene("/view/TopView.fxml");
 			System.out.println("Changed");
 		}
 

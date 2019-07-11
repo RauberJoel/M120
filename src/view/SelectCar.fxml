@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1300.0" stylesheets="@../css/RCASStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rcas.controller.SelectCarViewController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,37 +25,68 @@
       <RowConstraints maxHeight="296.66666412353516" minHeight="10.0" prefHeight="145.33333841959637" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Car">
-         <font>
-            <Font size="35.0" />
-         </font>
-         <GridPane.margin>
-            <Insets bottom="20.0" left="20.0" />
-         </GridPane.margin>
-      </Text>
-      <Button mnemonicParsing="false" text="Logout" GridPane.columnIndex="2">
-         <GridPane.margin>
-            <Insets bottom="40.0" left="120.0" />
-         </GridPane.margin>
-      </Button>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
          <children>
-            <Button layoutX="7.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="177.0">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Text layoutX="73.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Name" wrappingWidth="54.0" />
+            <JFXButton fx:id="btnLogout" buttonType="RAISED" ellipsisString="" layoutX="148.0" layoutY="58.0" onAction="#OnClickedLogout" prefHeight="25.0" prefWidth="137.0" text="Logout" textAlignment="CENTER">
+               <ripplerFill>
+                  <LinearGradient startX="0.1" startY="0.680952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+            <ScrollBar layoutX="414.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="14.0" />
          </children>
       </Pane>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+      <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="158.0" prefWidth="177.0">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
+            <Text layoutX="119.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Car" underline="true" wrappingWidth="245.93701171875">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
          </children>
-      </VBox>
+      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <JFXButton fx:id="btnNewCar" layoutX="120.0" layoutY="51.0" onAction="#onClickedNewCar" text=" ">
+               <graphic>
+                  <ImageView fitHeight="170.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/new.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <JFXButton fx:id="btnAudiR8" layoutX="77.0" layoutY="51.0" onAction="#OnClickedAudiR8" text=" ">
+               <graphic>
+                  <ImageView fitHeight="170.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/r8.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <JFXButton fx:id="btnLambo" layoutX="52.0" layoutY="61.0" onAction="#OnClickedLambo" prefHeight="158.0" prefWidth="322.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="130.0" fitWidth="338.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Lambo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
    </children>
 </GridPane>

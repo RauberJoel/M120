@@ -21,9 +21,7 @@
       <Pane prefHeight="800.0" prefWidth="1300.0">
          <children>
             <Text fill="#1505ff" layoutX="148.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties" textAlignment="CENTER" wrappingWidth="264.548828125">
-               <font>
                   <Font size="35.0" />
-               </font>
             </Text>
       		<LineChart id="mainChart" fx:id="mainChart" animated="false" createSymbols="false" layoutX="82.0" layoutY="142.0" legendVisible="false" prefHeight="526.0" prefWidth="562.0" title="%mainChartTitle">
       			<xAxis>

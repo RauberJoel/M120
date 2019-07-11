@@ -1,38 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rcas.controller.CarViewController">
-   <children>
-      <Button layoutX="448.0" layoutY="327.0" mnemonicParsing="false" text="Button" />
-      <TabPane layoutX="750.0" layoutY="50.0" prefHeight="700.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.rightAnchor="50.0">
-        <tabs>
-          <Tab text="Car">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="Properties">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="Topview">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-        </tabs>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </padding>
-      </TabPane>
-   </children>
-</AnchorPane>
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1300.0" stylesheets="@../css/RCASStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rcas.controller.CarViewController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="208.66665649414062" minHeight="10.0" prefHeight="103.33333587646484" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="460.0" minHeight="10.0" prefHeight="460.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="296.66666412353516" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+         <children>
+            <TabPane fx:id="tabPane" layoutX="6.0" layoutY="21.0" prefHeight="573.0" prefWidth="423.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="120.0">
+              <tabs>
+                <Tab fx:id="tabCar" onSelectionChanged="#OnSelectionChanged" text="Car">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab fx:id="tabProperties" onSelectionChanged="#OnSelectionChanged" text="Properties">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabEdit" onSelectionChanged="#OnSelectionChanged" text="Edit">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+        </Pane>
+        <Pane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Text fx:id="fldName" layoutX="146.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="245.93701171875">
+                    <font>
+                        <Font size="35.0" />
+                    </font>
+                </Text>
+                <JFXButton fx:id="btnBack" layoutX="33.0" layoutY="26.0" onAction="#onClickedBack" prefHeight="60.0" prefWidth="68.0" text=" ">
+                    <graphic>
+                        <ImageView fitHeight="62.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/back.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </Pane>
+        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <Text fx:id="fldFTW" layoutX="14.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Front track w. (m):" wrappingWidth="200.0" />
+            <Text fx:id="fldRTW" layoutX="14.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rear track w. (m):" wrappingWidth="200.0" />
+            <Text fx:id="fldWheelbase" layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheelbase (m):" wrappingWidth="125.373046872005" />
+            <Text fx:id="fldCOG" layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Center of gravity (m):" wrappingWidth="200.0" />
+            <Text fx:id="fldFRD" layoutX="14.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Front roll distance (m):" wrappingWidth="200.0" />
+            <Text fx:id="fldFLCW" layoutX="14.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FL corner w. (kg):" wrappingWidth="200.0" />
+            <Text fx:id="fldFRCW" layoutX="14.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FR corner w. (kg):" wrappingWidth="200.0" />
+            <Text fx:id="fldRLCW" layoutX="14.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RL corner w. (kg):" wrappingWidth="200.0" />
+            <Text fx:id="fldRRCW" layoutX="14.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RR corner w. (kg):" wrappingWidth="200.0" />
+         </children>
+        </Pane>
+        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="850.0" layoutX="-431.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/fiat.png" />
+               </image>
+            </ImageView>
+         </children>
+        </Pane>
+        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+    </children>
+</GridPane>

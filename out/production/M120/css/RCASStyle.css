@@ -3,13 +3,14 @@
     -fx-font-size: 1.6em;
 }
 
-#selectBox {
-
-}
 
 /*Raised button example */
 .jfx-button {
     -jfx-button-type: RAISED;
     -fx-background-color: grey;
     -fx-text-fill: white;
+}
+
+.jfx-slider-style{
+    -jfx-default-thumb: red;
 }

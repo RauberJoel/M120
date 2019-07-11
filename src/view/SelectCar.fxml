@@ -53,7 +53,7 @@
          <children>
             <JFXButton fx:id="btnNewCar" layoutX="120.0" layoutY="51.0" onAction="#onClickedNewCar" text=" ">
                <graphic>
-                  <ImageView fitHeight="170.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView" fitHeight="169.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/new.png" />
                      </image>
@@ -77,7 +77,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <JFXButton fx:id="btnLambo" layoutX="52.0" layoutY="61.0" onAction="#OnClickedLambo" prefHeight="158.0" prefWidth="322.0" text=" ">
+            <JFXButton fx:id="btnLambo" layoutX="48.0" layoutY="51.0" onAction="#OnClickedLambo" prefHeight="178.0" prefWidth="338.0" text=" ">
                <graphic>
                   <ImageView fitHeight="130.0" fitWidth="338.0" pickOnBounds="true" preserveRatio="true">
                      <image>

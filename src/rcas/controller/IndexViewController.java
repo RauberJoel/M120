@@ -17,6 +17,7 @@ import java.io.IOException;
 public class IndexViewController {
 
     private Stage primaryStage;
+
     @FXML
     private ChoiceBox selectBox;
     @FXML

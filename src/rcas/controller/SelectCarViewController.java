@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import rcas.util.Variables;
@@ -31,18 +33,68 @@ public class SelectCarViewController {
     private JFXButton btnLambo;
 
     @FXML
-    public void OnClickedAudiR8(ActionEvent event) {
-        System.out.println("Audi");
+    private ImageView imageView;
+
+    @FXML
+    public void OnClickedAudiR8(ActionEvent event) throws IOException {
+        Variables.selectedCar = "AudiR8";
+
+        Variables.ACarName = "AudiR8";
+        Variables.AFrontTrack = 1.6;
+        Variables.ARearTrack = 1.6;
+        Variables.AWheelbase = 2.6;
+        Variables.ACogHeight = 0.5;
+        Variables.AFrontRollDist = 0.55;
+        Variables.ACornerWeightFR = 420;
+        Variables.ACornerWeightFL = 420;
+        Variables.ACornerWeightRL = 370;
+        Variables.ACornerWeightRR = 370;
+
+        Variables.scene = setScene("/view/Car.fxml");
+        System.out.println("Changed to \"Car\"-view");
+
+        Variables.selectedTab = "Car";
     }
 
     @FXML
-    public void OnClickedLambo(ActionEvent event) {
-        System.out.println("Lambo");
+    public void initialize(){
+        if(Variables.NCarName != ("NewCar")){
+            Image image = new Image("images/bugatti.png");
+            imageView.setImage(image);
+        }
     }
 
     @FXML
-    public void onClickedNewCar(ActionEvent event) {
-        System.out.println("New Car");
+    public void OnClickedLambo(ActionEvent event) throws IOException {
+        Variables.selectedCar = "Lambo";
+
+        Variables.LCarName = "Lambo";
+        Variables.LFrontTrack = 1.6;
+        Variables.LRearTrack = 1.6;
+        Variables.LWheelbase = 4.5;
+        Variables.LCogHeight = 0.5;
+        Variables.LFrontRollDist = 0.8;
+        Variables.LCornerWeightFR = 500;
+        Variables.LCornerWeightFL = 500;
+        Variables.LCornerWeightRL = 500;
+        Variables.LCornerWeightRR = 500;
+
+        Variables.scene = setScene("/view/Car.fxml");
+        System.out.println("Changed to \"Car\"-view");
+
+        Variables.selectedTab = "Car";
+    }
+
+    @FXML
+    public void onClickedNewCar(ActionEvent event) throws IOException {
+        Variables.selectedCar = "New";
+
+        Variables.NCarName = "NewCar";
+
+        Variables.scene = setScene("/view/AddCar.fxml");
+        System.out.println("Changed to \"AddCar\"-View");
+
+        Variables.selectedTab = "Car";
     }
 
     @FXML
@@ -55,7 +107,7 @@ public class SelectCarViewController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             Variables.scene = setScene("/view/index.fxml");
-            System.out.println("Changed to index view");
+            System.out.println("Changed to \"index\"-view");
         }
     }
 
@@ -67,5 +119,6 @@ public class SelectCarViewController {
         primaryStage.show();
         return scene;
     }
+
 }
 
